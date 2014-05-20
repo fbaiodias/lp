@@ -65,4 +65,7 @@ encontraTodasPecas(TodasPecas) :-
   bagof(peca(X,Y), peca(X,Y), TodasPecas).
 
 
-check(Tabuleiro, TabuleiroTotal) :- encontraTodasPecas(TodasPecas).
+check(Tabuleiro, TabuleiroTotal) :- 
+  encontraTodasPecas(TodasPecas), 
+  permutation(Tabuleiro, TodasPecas),
+  TabuleiroTotal=Tabuleiro.
